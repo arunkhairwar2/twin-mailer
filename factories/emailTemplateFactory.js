@@ -10,13 +10,7 @@ module.exports = function emailTemplateFactory({ type, data }) {
         feedbackText: data.feedbackText,
       });
     case "schedule-meeting":
-      return scheduleMeetingTemplate({
-        meetingID: data.meetingID,
-        meetingLink: data.meetingLink,
-        meetingTitle: data.meetingTitle,
-        organizerEmail: data.organizerEmail,
-        dateAndTime: data.dateAndTime,
-      });
+      return scheduleMeetingTemplate(data);
     default:
       throw new Error("Unsupported email type");
   }

@@ -11,17 +11,16 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const feedbackMail = async (to, subject, text) => {
+const feedbackMail = async (userName, to, subject, text) => {
   const htmlTemplate = emailTemplateFactory({
     type: "feedback",
     data: {
-      userName: "mohan",
+      userName,
       userEmail: to,
       time: now,
       feedbackText: text,
     },
   });
-
   const mailOptions = {
     from: `"Twine" <${process.env.EMAIL_USER}>`,
     to,
